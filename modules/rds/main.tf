@@ -2,13 +2,13 @@
 resource "aws_subnet" "private_subnet_a" {
   vpc_id     = var.vpc_id
   cidr_block = "10.0.7.0/24"
-  # ... (other subnet configuration)
+  availability_zone = "us-east-1a"  # Specify the desired AZ for this subnet
 }
 
 resource "aws_subnet" "private_subnet_b" {
   vpc_id     = var.vpc_id
   cidr_block = "10.0.6.0/24"
-  # ... (other subnet configuration)
+  availability_zone = "us-east-1b"  # Specify a different AZ for this subnet
 }
 
 
