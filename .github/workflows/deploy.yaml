@@ -49,11 +49,13 @@ jobs:
 
       - name: Get ECR Repository URL
         id: ecr-repo-url
-        run: echo "ECR_REPO_URL=$(terraform output -raw repository_url)" >> $GITHUB_ENV.tmp
+        run: echo "ECR_REPO_URL=$(terraform output -raw repository_url)" >> GITHUB_ENV.tmp
         working-directory: ./modules
 
+
       - name: Load ECR Repository URL
-        run: echo "ECR_REPO_URL=$(cat ./modules/$GITHUB_ENV.tmp)" >> $GITHUB_ENV && rm ./modules/$GITHUB_ENV.tmp
+        run: echo "ECR_REPO_URL=$(cat ./modules/GITHUB_ENV.tmp)" >> GITHUB_ENV && rm ./modules/GITHUB_ENV.tmp
+
 
 
 
