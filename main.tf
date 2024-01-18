@@ -77,6 +77,7 @@ output "mongodb_instance_public_ip" {
 
 module "ecr" {
   source = "./modules/ecr"  # Assuming the module is in the `modules/ecr` directory
+  region = "us-east-1"
 }
 
 output "ecr_repository_url" {
