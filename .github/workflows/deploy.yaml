@@ -53,7 +53,8 @@ jobs:
         working-directory: ./modules
 
       - name: Load ECR Repository URL
-        run: echo "ECR_REPO_URL=$(cat $GITHUB_ENV.tmp)" >> $GITHUB_ENV && rm $GITHUB_ENV.tmp
+        run: echo "ECR_REPO_URL=$(cat ./modules/$GITHUB_ENV.tmp)" >> $GITHUB_ENV && rm ./modules/$GITHUB_ENV.tmp
+
 
 
       - name: Get Kubeconfig
