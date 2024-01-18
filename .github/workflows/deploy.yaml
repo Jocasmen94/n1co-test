@@ -46,7 +46,7 @@ jobs:
       - name: Get Kubeconfig
         run: |
           CLUSTER_NAME="my-eks-cluster"
-          aws eks --region your_aws_region update-kubeconfig --name $CLUSTER_NAME
+          aws eks --region us-east-1 update-kubeconfig --name $CLUSTER_NAME
           echo "::set-env name=KUBE_CONFIG_PATH::${HOME}/.kube/config"
     
 
