@@ -14,9 +14,10 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: my-ecr-repo-jocasmen:latest
+        image: ${AWS_REGION}.dkr.ecr.${AWS_REGION}.amazonaws.com/my-ecr-repo-jocasmen:latest
         ports:
         - containerPort: 80
+
 
 ---
 
