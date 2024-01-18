@@ -88,13 +88,13 @@ jobs:
     - name: Login to Amazon ECR
       uses: aws-actions/amazon-ecr-login@v1
       with:
-        region: us-east-1
-        registry: ${{ secrets.AWS_REGION }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
-        username: AWS
-        password: ${{ secrets.AWS_ACCESS_TOKEN }}
+       region: us-east-1  # Hardcoded region
+       registry: us-east-1.dkr.ecr.us-east-1.amazonaws.com  # Replace with your specific registry URL
+       username: AWS
+
 
     - name: Push Docker Image to ECR
-      run: docker push ${{ secrets.AWS_REGION }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/my-ecr-repo-jocasmen:latest
+      run: docker push us-east-1.dkr.ecr.us-east-1.amazonaws.com/my-ecr-repo-jocasmen:latest
 
     - name: Deploy to EKS
       run: kubectl apply -f kubernetes/deployment.yaml
