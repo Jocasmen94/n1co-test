@@ -30,6 +30,9 @@ jobs:
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region your_aws_region
 
+      - name: Show AWS Configuration
+        run: aws configure list
+
       - name: Terraform Init
         run: terraform init
         # working-directory: ./modules
