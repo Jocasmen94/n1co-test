@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: ${AWS_REGION}.dkr.ecr.${AWS_REGION}.amazonaws.com/my-ecr-repo-jocasmen:latest
+        image: ${{ secrets.DOCKERHUB_USERNAME }}/n1co-test:latest
         ports:
         - containerPort: 80
 
