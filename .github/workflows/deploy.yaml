@@ -131,11 +131,11 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
-      # working-directory: ./modules
+      working-directory: ./modules
 
     - name: Terraform Destroy
       run: terraform destroy -auto-approve
-      # working-directory: ./modules
+      working-directory: ./modules
       env:
         TF_VAR_aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         TF_VAR_aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
