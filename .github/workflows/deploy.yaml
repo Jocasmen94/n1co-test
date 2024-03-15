@@ -3,7 +3,7 @@ name: Deploy to Docker Hub and EKS
 on:
   push:
     branches:
-    - dev
+    - main
 
 jobs:
   build-and-analyze:  # Added Build and Analyze job
