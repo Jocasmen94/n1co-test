@@ -9,7 +9,7 @@ RUN pip install -r requirements.txt
 
 # Introduce a security vulnerability by using an outdated or vulnerable library
 # For demonstration purposes, let's use an outdated version of a library
-# RUN pip install outdated-vulnerable-library==1.2.3
+RUN pip install outdated-vulnerable-library==1.2.3
 
 # Create a new stage based on the python image
 FROM node:14
