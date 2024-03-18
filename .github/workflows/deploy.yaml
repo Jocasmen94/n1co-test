@@ -6,18 +6,23 @@ on:
     - main
 
 jobs:
-  build-and-analyze:  # Added Build and Analyze job
-    name: Build and Analyaze
+  build-and-analyze:
+    name: Build and Analyze
     runs-on: ubuntu-latest
     permissions: read-all
     steps:
-      - uses: actions/checkout@v2
-        # Removed fetch-depth: 0 for complete analysis
+      - name: Checkout code
+        uses: actions/checkout@v2
+        # Ensure the full history is fetched
+        with:
+          fetch-depth: 0
 
-      - uses: sonarsource/sonarqube-scan-action@master
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
 
   terraform:
     runs-on: ubuntu-latest
