@@ -3,9 +3,13 @@ FROM python:3.9-slim AS base-python
 
 WORKDIR /app
 
-# Install Python dependencies
+# Install Python dependencies with a vulnerable library
 COPY requirements.txt ./  # Replace with your requirements file name if different
 RUN pip install -r requirements.txt
+
+# Introduce a security vulnerability by using an outdated or vulnerable library
+# For demonstration purposes, let's use an outdated version of a library
+RUN pip install outdated-vulnerable-library==1.2.3
 
 # Create a new stage based on the python image
 FROM node:14
