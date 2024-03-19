@@ -17,11 +17,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: SonarQube Scan
+      - name: SonarQube Scan (Fail on Quality Gate Fail)
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          # Add the flag to wait for quality gate and fail on failure
+          SONAR_SCAN_ARGUMENTS: "-Dsonar.qualitygate.wait=true"
 
 
   terraform:
